@@ -1,0 +1,444 @@
+---
+interface Props {
+  title?: string;
+}
+
+const { title = "Jakub Čech — Software Engineer" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{title}</title>
+<meta name="description" content="Jakub Čech — Software engineer based in Prague. Building reliable, scalable systems with a focus on clean architecture and developer experience.">
+<meta property="og:title" content={title}>
+<meta property="og:description" content="Software engineer based in Prague. Building reliable, scalable systems with clean architecture.">
+<meta property="og:url" content="https://jakubcech.cz">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://jakubcech.cz">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="theme-color" content="#1e2022">
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+  <div class="header__inner">
+    <div class="header__title"><a href="/">jakubcech.cz</a></div>
+    <div class="header__right">
+      <div class="header__dot header__dot--red"></div>
+      <div class="header__dot header__dot--yellow"></div>
+      <div class="header__dot header__dot--green"></div>
+    </div>
+  </div>
+</header>
+
+<!-- Nav -->
+<nav>
+  <a href="/#focus">focus</a>
+  <a href="/#about">about</a>
+  <a href="mailto:hello@jakubcech.cz">contact</a>
+</nav>
+
+<!-- Main -->
+<main>
+  <slot />
+</main>
+
+<!-- Footer -->
+<footer>
+  <span class="footer__copy">&copy; {new Date().getFullYear()} <a href="/">Jakub Čech</a> · Powered by <a href="https://astro.build">Astro</a></span>
+  <div class="footer__links">
+    <a href="mailto:hello@jakubcech.cz">email</a>
+    <a href="https://github.com/jakubcech" target="_blank" rel="noopener noreferrer">github</a>
+    <a href="https://linkedin.com/in/jakubcech" target="_blank" rel="noopener noreferrer">linkedin</a>
+  </div>
+</footer>
+
+</body>
+</html>
+
+<style is:global>
+  @font-face {
+    font-family: 'Fira Code';
+    src: url('/fonts/FiraCode-VF.woff2') format('woff2');
+    font-weight: 300 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --background: #1e2022;
+    --foreground: #d6deeb;
+    --accent: #ffa86a;
+    --secondary: #8be9fd;
+    --muted: #637777;
+    --selection: #4c5f7a;
+    --border: #4c5f7a;
+    --border-subtle: #2a3040;
+    --code-bg: #161819;
+    --font: 'Fira Code', 'Consolas', 'Monaco', monospace;
+    --max-width: 780px;
+  }
+
+  ::selection {
+    background: var(--selection);
+    color: var(--foreground);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font);
+    font-size: 15px;
+    background: var(--background);
+    color: var(--foreground);
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* --- Header --- */
+  .header {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2rem 1.5rem 0;
+  }
+
+  .header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header__title {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  .header__title a {
+    color: var(--foreground);
+    text-decoration: none;
+  }
+
+  .header__title a:hover { text-decoration: underline; }
+
+  .header__right {
+    display: flex;
+    gap: 6px;
+    margin-top: 0.5rem;
+  }
+
+  .header__dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+
+  .header__dot--red { background: #ff5f56; }
+  .header__dot--yellow { background: #ffbd2e; }
+  .header__dot--green { background: #27c93f; }
+
+  /* --- Nav --- */
+  nav {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 1rem 1.5rem 0;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  nav a {
+    color: var(--foreground);
+    font-size: 0.85rem;
+    position: relative;
+  }
+
+  nav a::before {
+    content: '# ';
+    color: var(--accent);
+  }
+
+  nav a:hover {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  /* --- Main --- */
+  main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 4rem;
+  }
+
+  /* --- Section --- */
+  .section {
+    margin-bottom: 4rem;
+  }
+
+  .section:last-child { margin-bottom: 0; }
+
+  /* --- Hero --- */
+  .hero__greeting {
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .hero h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--foreground);
+    margin-bottom: 1.25rem;
+    position: relative;
+    display: inline-block;
+  }
+
+  .hero h1::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--accent);
+  }
+
+  .cursor {
+    display: inline-block;
+    width: 10px;
+    height: 1.2em;
+    background: var(--accent);
+    margin-left: 4px;
+    vertical-align: text-bottom;
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+
+  .hero p {
+    color: var(--foreground);
+    max-width: 600px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero__links {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    border: 2px solid var(--accent);
+    color: var(--foreground);
+    font-family: var(--font);
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    text-decoration: none;
+  }
+
+  .btn:hover {
+    background: var(--accent);
+    color: var(--background);
+    text-decoration: none;
+  }
+
+  .btn--ghost {
+    border-color: var(--border);
+  }
+
+  .btn--ghost:hover {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: var(--background);
+  }
+
+  /* --- Separator --- */
+  hr {
+    border: none;
+    border-top: 1px dashed var(--border);
+    margin: 3rem 0;
+  }
+
+  /* --- Section headings --- */
+  h2 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--foreground);
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+  }
+
+  h2::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent);
+  }
+
+  /* --- Focus cards --- */
+  .focus-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .focus-card {
+    border: 1px solid var(--border);
+    padding: 1.25rem 1.5rem;
+    position: relative;
+    transition: border-color 0.3s;
+  }
+
+  .focus-card:hover {
+    border-color: var(--accent);
+  }
+
+  .focus-card__title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+  }
+
+  .focus-card__title::before {
+    content: '▸ ';
+    color: var(--accent);
+  }
+
+  .focus-card__desc {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .tag {
+    font-size: 0.7rem;
+    color: var(--secondary);
+    background: var(--code-bg);
+    padding: 0.15rem 0.5rem;
+    border: 1px solid var(--border-subtle);
+  }
+
+  /* --- About --- */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+
+  .about-text p {
+    font-size: 0.9rem;
+    color: var(--foreground);
+    margin-bottom: 0.75rem;
+    line-height: 1.8;
+  }
+
+  .about-details {
+    border: 1px solid var(--border);
+    padding: 1.25rem 1.5rem;
+  }
+
+  .detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0.4rem 0;
+    border-bottom: 1px dashed var(--border-subtle);
+    font-size: 0.85rem;
+    gap: 1rem;
+  }
+
+  .detail-row:last-child { border-bottom: none; }
+
+  .detail-row__label {
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .detail-row__value {
+    color: var(--foreground);
+    text-align: right;
+  }
+
+  /* --- Footer --- */
+  footer {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2rem 1.5rem 3rem;
+    border-top: 1px dashed var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer__copy {
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+
+  .footer__links {
+    display: flex;
+    gap: 1.25rem;
+  }
+
+  .footer__links a {
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+
+  .footer__links a:hover { color: var(--accent); }
+
+  /* --- Terminal prompt style --- */
+  .prompt {
+    color: var(--muted);
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .prompt span { color: var(--accent); }
+
+  /* --- Mobile --- */
+  @media (max-width: 640px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    nav { gap: 1rem; }
+    .hero h1 { font-size: 1.3rem; }
+  }
+</style>

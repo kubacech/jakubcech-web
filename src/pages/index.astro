@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout>
+
+  <!-- Hero -->
+  <section class="section hero">
+    <div class="prompt"><span>~</span> whoami</div>
+    <h1>Jakub Čech<span class="cursor"></span></h1>
+    <p>
+      I am a staff-level software engineer based in Prague, focused on designing and delivering reliable, scalable systems end to end—from application architecture through data and infrastructure.
+    </p>
+    <p>
+      I am comfortable owning complex technical problems across the stack: defining architecture, making trade-offs, improving performance and operability, and driving standards that help teams ship safely and predictably.
+    </p>
+    <div class="hero__links">
+      <a href="mailto:hello@jakubcech.cz" class="btn">get_in_touch</a>
+      <a href="https://github.com/kubacech" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">github</a>
+      <a href="https://linkedin.com/in/kubacech" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">linkedin</a>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- Focus -->
+  <section class="section" id="focus">
+    <div class="prompt"><span>~</span> cat focus.md</div>
+    <h2>Focus Areas</h2>
+    <div class="focus-grid">
+      <div class="focus-card">
+        <div class="focus-card__title">Cloud &amp; Infrastructure</div>
+        <div class="focus-card__desc">Building cloud-native systems with infrastructure as code, containerization, and CI/CD pipelines that scale.</div>
+      </div>
+      <div class="focus-card">
+        <div class="focus-card__title">Data &amp; Observability</div>
+        <div class="focus-card__desc">Designing data pipelines, monitoring, and observability systems that provide deep insight into system health and performance.</div>
+      </div>
+      <div class="focus-card">
+        <div class="focus-card__title">Technical Leadership &amp; Standards</div>
+        <div class="focus-card__desc">Establishing engineering standards, code review culture, and cross-team technical alignment that help teams ship safely.</div>
+      </div>
+      <div class="focus-card">
+        <div class="focus-card__title">Backend &amp; APIs</div>
+        <div class="focus-card__desc">Designing robust backend services, REST and GraphQL APIs with a focus on performance, security, and maintainability.</div>
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- About -->
+  <section class="section" id="about">
+    <div class="prompt"><span>~</span> cat about.md</div>
+    <h2>About</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I'm a software engineer based in Prague, Czech Republic. I enjoy building things that live on the internet — mainly backend services.</p>
+        <p>I care about writing clean, maintainable and sustianable code.</p>
+      </div>
+      <div class="about-details">
+        <div class="detail-row">
+          <span class="detail-row__label">location</span>
+          <span class="detail-row__value">Prague, CZ</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-row__label">email</span>
+          <span class="detail-row__value"><a href="mailto:hello@jakubcech.cz">hello@jakubcech.cz</a></span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-row__label">github</span>
+          <span class="detail-row__value"><a href="https://github.com/kubacech" target="_blank" rel="noopener noreferrer">jakubcech</a></span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-row__label">linkedin</span>
+          <span class="detail-row__value"><a href="https://linkedin.com/in/kubacech" target="_blank" rel="noopener noreferrer">/in/jakubcech</a></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

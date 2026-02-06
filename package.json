@@ -1,0 +1,22 @@
+{
+  "name": "jakubcech-web",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Personal website of Jakub Cech - built with Astro Terminal theme",
+  "license": "MIT",
+  "scripts": {
+    "dev": "astro dev",
+    "check": "astro check",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.6.0",
+    "astro": "^5.15.7"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.5",
+    "typescript": "^5.9.3"
+  }
+}
